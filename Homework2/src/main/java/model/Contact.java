@@ -17,6 +17,9 @@ public class Contact {
 
     }
 
+    public Contact(String id, String firstName, String secondName) {
+    }
+
     public String getName() {
         return name;
     }

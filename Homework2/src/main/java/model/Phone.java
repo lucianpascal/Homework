@@ -1,8 +1,10 @@
 package model;
 
+import com.sun.deploy.net.MessageHeader;
+
 import java.util.ArrayList;
 
-public abstract class Phone extends Contact {
+public class Phone {
 
 
     public String name;
@@ -10,6 +12,14 @@ public abstract class Phone extends Contact {
     private final int BATTERY_LIFE_TIME = 72;
     private String material;
     public ArrayList<Contact> contacts;
+    private String messages;
+    public String calls;
+    private Message[] allMessages;
+    private Call[] allCalls;
+
+
+    public Phone() {
+    }
 
 
     public String getName() {
@@ -42,36 +52,50 @@ public abstract class Phone extends Contact {
 
     }
 
-    public void sendMessage(String number, String text) {
 
-    }
-
-    public void listMessages() {
-
-    }
-
-    public void addContact(String id, String firstName, String lastName, String number) {
-
-    }
-
-    public void listContacts() {
-
-    }
 
     public ArrayList<Contact> getContacts() {
         return contacts;
     }
 
-    public String contact() {
-        return null;
+
+    public void addContact(String id, String firstName, String secondName) {
+        Contact contact = new Contact(id, firstName, secondName);
+        contacts.add(contact);
+        System.out.println(contact.toString() + "added");
     }
 
-    public String getMaterial() {
-        return material;
+    public void listOfExistingContacts(){
+        for(int i = 0; i < contacts.size(); i++)
+            System.out.println(contacts.get(i).toString());
     }
 
-    public void setMaterial(String material) {
-        this.material = material;
+    public void textMessage(String number, String text) {
+        Message message = new Message(number, text);
+        message.add(message);
+        System.out.println(message.toString() + "sent");
     }
+
+    public void listMessages() {
+        for(Message message : allMessages)
+            System.out.println(message.toString() + "\n");
+    }
+
+
+    public void call(String number) {
+        Call call = new Call(number);
+        call.add(call);
+        System.out.println(call.toString() + " dialing");
+
+    }
+
+    public void callsHistory() {
+        for(Call call : allCalls)
+            System.out.println(call.toString() + "\n");
+    }
+
+
+
+
 }
 

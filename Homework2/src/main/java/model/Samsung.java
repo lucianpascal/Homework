@@ -5,8 +5,7 @@ import java.util.ArrayList;
 public class Samsung extends Phone implements PhoneInterface {
 
 
-    public Samsung(String name, String color, String material) {
-        super();
+    public Samsung(String name, String color, String material) {;
     }
 
     public void createNewContact() {
